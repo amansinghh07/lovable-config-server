@@ -12,4 +12,18 @@ spring:
             - Path=/api/v1/account/**
           filters:
             - StripPrefix=2
+       # workspace Service (context-path: /account)
+        - id: workspace-service
+          uri: lb://workspace-service
+          predicates:
+            - Path=/api/v1/workspace/**
+          filters:
+            - StripPrefix=2
+       # intelligence Service (context-path: /account)
+        - id: intelligence-service
+          uri: lb://intelligence-service
+          predicates:
+            - Path=/api/v1/intelligence/**
+          filters:
+            - StripPrefix=2
   
